@@ -7,13 +7,19 @@ import {
 } from "@mui/material";
 import MenuIcon from "Icons/MenuIcon";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { cssColor } from "utils/colors";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const handleToggleSidebarMenu = () => {
     setOpen((prev) => !prev);
+  };
+
+  const RedirectToHome = () => {
+    navigate("/projects");
   };
 
   return (
@@ -44,7 +50,8 @@ export default function Navbar() {
               color="white"
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, cursor: "pointer" }}
+              onClick={RedirectToHome}
             >
               ErrorSnap
             </Typography>

@@ -1,5 +1,6 @@
 import {
   Button,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,8 +10,10 @@ import {
 import { ReactNode } from "react";
 import { zeroArgsFunction } from "types/function";
 
-export interface DialogConfirmProps extends DialogProps {
+export interface DialogConfirmProps extends Omit<DialogProps, "title"> {
   open: boolean;
+  disabled?: boolean;
+  submitting?: boolean;
   onClose: zeroArgsFunction;
   onSubmit?: zeroArgsFunction;
   children: ReactNode;
@@ -21,6 +24,8 @@ export default function DialogConfirm({
   open,
   onClose,
   children,
+  disabled = false,
+  submitting = false,
   onSubmit,
   title,
   ...props
@@ -30,10 +35,17 @@ export default function DialogConfirm({
       <DialogTitle>{title}</DialogTitle>
       <DialogContent sx={{ pt: "8px !important" }}>{children}</DialogContent>
       <DialogActions>
-        <Button onClick={onClose} color={"secondary"}>
+        <Button disabled={disabled} onClick={onClose} color={"secondary"}>
           Cancel
         </Button>
-        <Button onClick={onSubmit} color={"secondary"}>
+        <Button
+          disabled={disabled}
+          onClick={onSubmit}
+          color={"secondary"}
+          endIcon={
+            submitting ? <CircularProgress size={18} color="primary" /> : null
+          }
+        >
           Submit
         </Button>
       </DialogActions>

@@ -6,9 +6,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { project } from "types/project";
 import { cssColor } from "utils/colors";
 
-export default function Project() {
+export default function Project({ project }: { project: project }) {
   const navigate = useNavigate();
 
   const handleProjectClick = () => {
@@ -29,7 +30,7 @@ export default function Project() {
       <CardActionArea>
         <CardContent>
           <Typography color="white" gutterBottom sx={{ fontSize: 14 }}>
-            Prject name
+            {project?.name}
           </Typography>
         </CardContent>
         <CardActions>Learn More</CardActions>

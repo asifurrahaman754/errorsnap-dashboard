@@ -23,7 +23,7 @@ const routesConfig = [
   },
   {
     path: "*",
-    element: <Navigate to="/login" replace />,
+    element: <Navigate to="/projects" replace />,
   },
 ];
 

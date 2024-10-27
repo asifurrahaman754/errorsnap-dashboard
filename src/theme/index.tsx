@@ -61,7 +61,7 @@ const theme = {
     },
     divider: "#424242",
     error: {
-      main: "#F44336",
+      main: "#ff7f50",
     },
     action: {
       hover: "rgba(255, 255, 255, 0.08)",
@@ -99,13 +99,13 @@ const theme = {
             color: "#757575",
           },
           "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#F44336",
+            borderColor: cssColor("error"),
           },
           "& .Mui-error .MuiInputLabel-root": {
-            color: "#F44336",
+            color: cssColor("error"),
           },
           "& .Mui-error .MuiInputBase-input": {
-            color: "#F44336",
+            color: cssColor("error"),
           },
         },
       },
@@ -135,10 +135,10 @@ const theme = {
             color: "#757575",
           },
           "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#F44336",
+            borderColor: cssColor("error"),
           },
           "& .Mui-error .MuiInputBase-input": {
-            color: "#F44336",
+            color: cssColor("error"),
           },
         },
         icon: {
@@ -151,6 +151,12 @@ const theme = {
         root: {
           "&:hover": {
             opacity: 0.9,
+          },
+
+          "&.Mui-disabled": {
+            color: cssColor("secondary"),
+            opacity: 0.6,
+            cursor: "not-allowed",
           },
         },
         contained: {
