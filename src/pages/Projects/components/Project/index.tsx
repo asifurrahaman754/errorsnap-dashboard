@@ -13,7 +13,7 @@ export default function Project({ project }: { project: project }) {
   const navigate = useNavigate();
 
   const handleProjectClick = () => {
-    navigate("/project/test/errors");
+    navigate(`/projects/${project.id}/errors`);
   };
 
   return (

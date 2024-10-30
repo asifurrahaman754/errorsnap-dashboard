@@ -11,12 +11,12 @@
   --primary: #1e88e5;
   --secondary: #ff4081;
   --background: #121212;
+  --backgroundShade: #1a1c20;
   --paper: #1f1f1f;
   --textPrimary: #dbe5ea;
   --textSecondary: #b0bec5;
   --divider: #424242;
   --error: #ff7f50;
   --hover: rgba(255, 255, 255, 0.08);
-
   --font-family-roboto: '"Roboto", sans-serif';
 }

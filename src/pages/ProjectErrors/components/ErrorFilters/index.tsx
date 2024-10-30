@@ -5,7 +5,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import SearchIcon from "Icons/SearchIcon";
+import SearchIcon from "icons/SearchIcon";
 import { cssColor } from "utils/colors";
 
 export default function ErrorFilters() {

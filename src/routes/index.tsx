@@ -1,4 +1,5 @@
 import Login from "pages/Login";
+import ProjectErrorDetails from "pages/ProjectErrorDetails";
 import ProjectErrors from "pages/ProjectErrors";
 import Projects from "pages/Projects";
 import Register from "pages/Register";
@@ -18,8 +19,12 @@ const routesConfig = [
     element: <Projects />,
   },
   {
-    path: "/project/:name/errors",
+    path: "/projects/:projectId/errors",
     element: <ProjectErrors />,
+  },
+  {
+    path: "/projects/:projectId/errors/:errorId",
+    element: <ProjectErrorDetails />,
   },
   {
     path: "*",

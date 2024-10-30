@@ -6,17 +6,27 @@ interface ListContainerProps {
   error?: string;
   loading?: boolean;
   children: ReactNode;
+  count?: number;
 }
 
 export default function ListContainer({
   children,
   error,
+  count,
   loading,
 }: ListContainerProps) {
   if (loading) {
     return (
       <Box width="100%" textAlign="center" p={4}>
         <CircularProgress size={30} />
+      </Box>
+    );
+  }
+
+  if (count === 0) {
+    return (
+      <Box width="100%" textAlign="center" p={4}>
+        <Typography>No data found!</Typography>
       </Box>
     );
   }

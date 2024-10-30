@@ -1,11 +1,6 @@
-import {
-  AppBar,
-  Box,
-  Container,
-  SwipeableDrawer,
-  Typography,
-} from "@mui/material";
-import MenuIcon from "Icons/MenuIcon";
+import { AppBar, Box, SwipeableDrawer, Typography } from "@mui/material";
+import PageContainer from "components/PageContainer";
+import MenuIcon from "icons/MenuIcon";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { cssColor } from "utils/colors";
@@ -30,11 +25,11 @@ export default function Navbar() {
           height: "56px",
           background: "hsla(0,0%,100%,.8)",
           backdropFilter: "saturate(180%) blur(5px)",
-          backgroundColor: "#000000cc",
-          borderBottom: `1px solid ${cssColor("divider")}`,
+          backgroundColor: cssColor("backgroundShade"),
+          borderBottom: `1px solid #2e2e2e`,
         }}
       >
-        <Container
+        <PageContainer
           sx={{
             height: "100%",
           }}
@@ -56,7 +51,7 @@ export default function Navbar() {
               ErrorSnap
             </Typography>
           </Box>
-        </Container>
+        </PageContainer>
       </AppBar>
 
       <SwipeableDrawer

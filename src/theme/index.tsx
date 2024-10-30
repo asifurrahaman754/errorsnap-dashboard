@@ -11,6 +11,9 @@ export const BREAKPOINTS = {
 
 const theme = {
   typography: {
+    allVariants: {
+      color: cssColor("textPrimary"),
+    },
     fontFamily: '"Roboto", sans-serif',
     h1: {
       fontSize: "32px",
@@ -54,6 +57,7 @@ const theme = {
     background: {
       default: "#121212",
       paper: "#1F1F1F",
+      shade: "#1a1c20",
     },
     text: {
       primary: "#dbe5ea",
@@ -175,6 +179,7 @@ export interface CustomColorNames {
   primary: true;
   secondary: true;
   background: true;
+  backgroundShade: true;
   paper: true;
   textPrimary: true;
   textSecondary: true;

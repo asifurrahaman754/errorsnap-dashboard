@@ -1,10 +1,11 @@
-import { Box, Container, IconButton, Tooltip, Typography } from "@mui/material";
+import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import Navbar from "components/Navbar";
-import AddIcon from "Icons/AddIcon";
+import AddIcon from "icons/AddIcon";
 import { useState } from "react";
 import AddProject from "./components/AddProject";
 import { cssColor } from "utils/colors";
 import ProjectList from "./components/ProjectList";
+import PageContainer from "components/PageContainer";
 
 export default function Projects() {
   const [openAddProjectPopup, setOpenAddProjectPopup] = useState(false);
@@ -16,7 +17,7 @@ export default function Projects() {
   return (
     <>
       <Navbar />
-      <Container sx={{ py: 2 }}>
+      <PageContainer>
         <Box
           mb={4}
           display="flex"
@@ -42,7 +43,7 @@ export default function Projects() {
         </Box>
 
         <ProjectList />
-      </Container>
+      </PageContainer>
       {openAddProjectPopup ? (
         <AddProject onClose={() => setOpenAddProjectPopup(false)} />
       ) : null}
