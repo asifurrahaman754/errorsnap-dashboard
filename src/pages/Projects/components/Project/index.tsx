@@ -1,10 +1,5 @@
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, Chip, Typography } from "@mui/material";
+import AlertIcon from "icons/AlertIcon";
 import { useNavigate } from "react-router-dom";
 import { project } from "types/project";
 import { cssColor } from "utils/colors";
@@ -15,26 +10,49 @@ export default function Project({ project }: { project: project }) {
   const handleProjectClick = () => {
     navigate(`/projects/${project.id}/errors`);
   };
+  const errorCount = 0;
 
   return (
-    <Card
-      variant="outlined"
-      sx={{
-        border: "1px solid #333",
-        color: "white",
-        minHeight: "80px",
-        backgroundColor: cssColor("paper"),
-      }}
-      onClick={handleProjectClick}
-    >
-      <CardActionArea>
+    <>
+      <Card
+        sx={{
+          height: "100%",
+          cursor: "pointer",
+          transition: "transform 0.2s",
+          border: `1px solid ${cssColor("backgroundShade")}`,
+          "&:hover": {
+            transform: "translateY(-3px)",
+            border: `1px solid ${cssColor("divider")}`,
+          },
+        }}
+        onClick={handleProjectClick}
+      >
         <CardContent>
-          <Typography color="white" gutterBottom sx={{ fontSize: 14 }}>
-            {project?.name}
+          <Box
+            sx={{
+              mb: 2,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+            }}
+          >
+            <Typography variant="h6" component="h2">
+              {project.name}
+            </Typography>
+            <Chip
+              icon={<AlertIcon fontSize={16} />}
+              label={`${errorCount} errors`}
+              size="small"
+              color={errorCount > 0 ? "error" : "primary"}
+            />
+          </Box>
+
+          <Typography color="text.secondary">{project.description}</Typography>
+          <Typography variant="body2" color="text.secondary">
+            Last error: 7th july
           </Typography>
         </CardContent>
-        <CardActions>Learn More</CardActions>
-      </CardActionArea>
-    </Card>
+      </Card>
+    </>
   );
 }

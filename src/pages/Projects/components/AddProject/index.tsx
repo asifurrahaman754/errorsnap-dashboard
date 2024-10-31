@@ -3,10 +3,10 @@ import { Controller } from "react-hook-form";
 import { z } from "zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useHookForm from "hooks/useHookForm";
-import DialogConfirm from "components/DialogConfirm";
 import { zeroArgsFunction } from "types/function";
 import toast from "react-hot-toast";
 import { apiClient } from "utils/axios";
+import { CustomDialog } from "components/CustomDialog";
 
 const schema = z.object({
   name: z.string().min(1, "Project name is required"),
@@ -47,13 +47,13 @@ export default function AddProject({ onClose }: { onClose: zeroArgsFunction }) {
   });
 
   return (
-    <DialogConfirm
+    <CustomDialog
       onSubmit={handleSubmit}
       title="Add new project"
       open={true}
       disabled={isPending}
-      submitting={isPending}
       onClose={onClose}
+      maxWidth="xs"
     >
       <Grid container rowSpacing={2}>
         <Grid size={12}>
@@ -89,6 +89,6 @@ export default function AddProject({ onClose }: { onClose: zeroArgsFunction }) {
           />
         </Grid>
       </Grid>
-    </DialogConfirm>
+    </CustomDialog>
   );
 }

@@ -1,3 +1,4 @@
+import DashboardLayout from "Layouts/DashboardLayout";
 import Login from "pages/Login";
 import ProjectErrorDetails from "pages/ProjectErrorDetails";
 import ProjectErrors from "pages/ProjectErrors";
@@ -7,24 +8,29 @@ import { Navigate } from "react-router-dom";
 
 const routesConfig = [
   {
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/projects",
+        element: <Projects />,
+      },
+      {
+        path: "/projects/:projectId/errors",
+        element: <ProjectErrors />,
+      },
+      {
+        path: "/projects/:projectId/errors/:errorId",
+        element: <ProjectErrorDetails />,
+      },
+    ],
+  },
+  {
     path: "/register",
     element: <Register />,
   },
   {
     path: "/Login",
     element: <Login />,
-  },
-  {
-    path: "/projects",
-    element: <Projects />,
-  },
-  {
-    path: "/projects/:projectId/errors",
-    element: <ProjectErrors />,
-  },
-  {
-    path: "/projects/:projectId/errors/:errorId",
-    element: <ProjectErrorDetails />,
   },
   {
     path: "*",

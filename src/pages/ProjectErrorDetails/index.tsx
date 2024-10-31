@@ -1,5 +1,4 @@
 import { Grid2 as Grid } from "@mui/material";
-import Navbar from "components/Navbar";
 import ErrorBox from "./components/ErrorBox";
 import ErrorMeta from "./components/ErrorMeta";
 import PageContainer from "components/PageContainer";
@@ -7,7 +6,6 @@ import PageContainer from "components/PageContainer";
 export default function ProjectErrorDetails() {
   return (
     <>
-      <Navbar />
       <PageContainer>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 10 }}>

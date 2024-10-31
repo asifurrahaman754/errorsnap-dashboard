@@ -48,6 +48,7 @@ const theme = {
     },
   },
   palette: {
+    white: "#ffffff",
     primary: {
       main: "#1E88E5",
     },
@@ -153,22 +154,24 @@ const theme = {
     MuiButton: {
       styleOverrides: {
         root: {
-          "&:hover": {
-            opacity: 0.9,
-          },
-
-          "&.Mui-disabled": {
-            color: cssColor("secondary"),
-            opacity: 0.6,
-            cursor: "not-allowed",
-          },
+          borderRadius: "6px",
+          textTransform: "none",
+          fontWeight: 500,
         },
         contained: {
-          backgroundColor: cssColor("secondary"),
-          color: cssColor("textPrimary"),
+          backgroundColor: "#fff",
+          color: "#000",
+          "&:hover": {
+            backgroundColor: "#f5f5f5",
+          },
         },
-        text: {
-          color: cssColor("secondary"),
+        outlined: {
+          borderColor: "#333",
+          color: "#fff",
+          "&:hover": {
+            borderColor: "#444",
+            backgroundColor: "rgba(255, 255, 255, 0.05)",
+          },
         },
       },
     },
@@ -177,6 +180,7 @@ const theme = {
 
 export interface CustomColorNames {
   primary: true;
+  white: true;
   secondary: true;
   background: true;
   backgroundShade: true;

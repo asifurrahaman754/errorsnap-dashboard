@@ -21,9 +21,6 @@ import { errorLog } from "types/errorLog";
 
 export default function ErrorTable() {
   const location = useLocation();
-
-  console.log("path", location.pathname);
-
   const { projectId } = useParams();
 
   const {
@@ -50,7 +47,7 @@ export default function ErrorTable() {
       <ListContainer
         loading={isLoading}
         error={error?.message}
-        count={errorLogs.length}
+        count={errorLogs?.length}
       >
         <TableContainer
           component={Paper}
