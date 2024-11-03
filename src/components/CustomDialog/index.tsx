@@ -17,7 +17,9 @@ interface CustomDialogProps extends Omit<DialogProps, "title"> {
   open: boolean;
   disabled?: boolean;
   title: string;
+  submitText?: string;
   children: React.ReactNode;
+  startIcon?: React.ReactNode;
   onClose: zeroArgsFunction;
   onSubmit?: zeroArgsFunction;
 }
@@ -26,7 +28,9 @@ export const CustomDialog = ({
   open,
   onClose,
   disabled = false,
+  submitText = "",
   title,
+  startIcon,
   onSubmit,
   children,
   ...rest
@@ -64,8 +68,13 @@ export const CustomDialog = ({
         >
           Cancel
         </Button>
-        <Button disabled={disabled} onClick={onSubmit} variant="contained">
-          Submit
+        <Button
+          startIcon={startIcon || null}
+          disabled={disabled}
+          onClick={onSubmit}
+          variant="contained"
+        >
+          {submitText || "Submit"}
         </Button>
       </DialogActions>
     </Dialog>

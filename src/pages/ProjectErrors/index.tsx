@@ -1,6 +1,6 @@
-import { Button, Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Button, Grid2 as Grid, Typography } from "@mui/material";
 import ErrorTable from "./components/ErrorTable";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Copy from "components/Copy";
 import PageContainer from "components/PageContainer";
 import DownloadIcon from "icons/DownloadIcon";
@@ -10,6 +10,8 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "components/Loader";
 import ErrorMessage from "components/ErrorMessage";
 import SettingsIcon from "icons/SettingsIcon";
+import { cssColor } from "utils/colors";
+import ErrorFilters from "./components/ErrorFilters";
 
 export default function ProjectErrors() {
   const { projectId } = useParams();
@@ -36,7 +38,7 @@ export default function ProjectErrors() {
   return (
     <>
       <PageContainer>
-        <Grid container rowSpacing={3}>
+        <Grid container rowSpacing={2}>
           <Grid size={12}>
             <Grid container>
               <Grid size={{ xs: 12, md: 6 }}>
@@ -60,13 +62,25 @@ export default function ProjectErrors() {
                 >
                   Export Logs
                 </Button>
-                <Button variant="contained" startIcon={<SettingsIcon />}>
-                  Settings
-                </Button>
+                <Link to={`/projects/${projectId}/settings/team`}>
+                  <Button variant="contained" startIcon={<SettingsIcon />}>
+                    Settings
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </Grid>
 
+          <Grid size={12}>
+            <Box
+              p={1}
+              sx={{
+                backgroundColor: cssColor("backgroundShade"),
+              }}
+            >
+              <ErrorFilters />
+            </Box>
+          </Grid>
           <Grid size={12}>
             <ErrorTable />
           </Grid>
