@@ -157,6 +157,11 @@ const theme = {
           borderRadius: "6px",
           textTransform: "none",
           fontWeight: 500,
+
+          "&.Mui-disabled": {
+            backgroundColor: "#2d2d2d",
+            color: "#6b6b6b",
+          },
         },
         contained: {
           backgroundColor: "#fff",

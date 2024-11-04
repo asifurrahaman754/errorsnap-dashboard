@@ -8,12 +8,13 @@ import {
   Box,
   Button,
   DialogProps,
+  CircularProgress,
 } from "@mui/material";
 import CloseIcon from "icons/CloseIcon";
 import { zeroArgsFunction } from "types/function";
 import { cssColor } from "utils/colors";
 
-interface CustomDialogProps extends Omit<DialogProps, "title"> {
+export interface CustomDialogProps extends Omit<DialogProps, "title"> {
   open: boolean;
   disabled?: boolean;
   title: string;
@@ -42,7 +43,7 @@ export const CustomDialog = ({
       fullWidth
       PaperProps={{
         sx: {
-          borderRadius: "12px",
+          borderRadius: 1,
           bgcolor: "background.paper",
         },
       }}
@@ -69,7 +70,16 @@ export const CustomDialog = ({
           Cancel
         </Button>
         <Button
-          startIcon={startIcon || null}
+          startIcon={
+            disabled ? (
+              <CircularProgress
+                size={15}
+                sx={{ color: cssColor("textSecondary") }}
+              />
+            ) : (
+              startIcon || null
+            )
+          }
           disabled={disabled}
           onClick={onSubmit}
           variant="contained"

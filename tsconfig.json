@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "jsx": "preserve",
     "baseUrl": "./src",
     "lib": ["ES2015", "DOM"],

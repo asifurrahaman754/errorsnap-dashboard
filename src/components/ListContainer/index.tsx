@@ -4,6 +4,7 @@ import { cssColor } from "utils/colors";
 
 interface ListContainerProps {
   error?: string;
+  emptyText?: string;
   loading?: boolean;
   children: ReactNode;
   count?: number;
@@ -12,6 +13,7 @@ interface ListContainerProps {
 export default function ListContainer({
   children,
   error,
+  emptyText,
   count,
   loading,
 }: ListContainerProps) {
@@ -26,7 +28,7 @@ export default function ListContainer({
   if (count === 0) {
     return (
       <Box width="100%" textAlign="center" p={4}>
-        <Typography>No data found!</Typography>
+        <Typography>{emptyText || "No data found!"}</Typography>
       </Box>
     );
   }
