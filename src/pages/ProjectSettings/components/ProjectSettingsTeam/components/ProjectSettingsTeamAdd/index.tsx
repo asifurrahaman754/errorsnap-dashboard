@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { AxiosError } from "axios";
 import { CustomDialog } from "components/CustomDialog";
 import useHookForm from "hooks/useHookForm";
 import { key } from "hooks/useProjectTeamList";
@@ -43,9 +44,10 @@ export default function ProjectSettingsTeamAdd({
           queryClient.invalidateQueries({ queryKey: [key] });
           onClose();
         },
-        onError: (error) => {
-          console.error("Error adding project:", error);
-          toast.error("Error sending invitation!");
+        onError: (error: AxiosError<{ message: string }>) => {
+          const errorMessage = error?.response?.data?.message;
+          console.error("Error adding project:", errorMessage);
+          toast.error(errorMessage || "Error sending invitation!");
         },
       });
     },

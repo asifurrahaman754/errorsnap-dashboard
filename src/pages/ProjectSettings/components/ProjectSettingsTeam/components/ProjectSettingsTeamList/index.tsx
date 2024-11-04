@@ -31,7 +31,7 @@ export default function ProjectSettingsTeamList() {
 
         <Paper sx={{ mb: 4 }}>
           <List>
-            {data.map((member, index) => (
+            {data?.map((member, index) => (
               <React.Fragment key={member.id}>
                 {index > 0 && <Divider />}
                 <ProjectSettingsTeamListRow member={member} />

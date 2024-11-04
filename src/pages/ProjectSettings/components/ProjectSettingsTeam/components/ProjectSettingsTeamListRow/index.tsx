@@ -22,6 +22,9 @@ export default function ProjectSettingsTeamListRow({
   const { component, handleDelete } = useDeleteDialog(mutateAsync, {
     isPending,
     onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
+    description: "Are you sure you want to remove this user from the team?",
+    title: "Remove Member",
+    successMessage: "Successfully removed from team",
   });
 
   return (

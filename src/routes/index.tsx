@@ -6,6 +6,7 @@ import ProjectErrors from "pages/ProjectErrors";
 import Projects from "pages/Projects";
 import Register from "pages/Register";
 import { Navigate } from "react-router-dom";
+import Invitations from "pages/Invitations";
 
 const routesConfig = [
   {
@@ -30,6 +31,10 @@ const routesConfig = [
       {
         path: "/projects/:projectId/settings/general",
         element: <ProjectSettings />,
+      },
+      {
+        path: "/invitations",
+        element: <Invitations />,
       },
     ],
   },

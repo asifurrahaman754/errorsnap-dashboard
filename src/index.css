@@ -25,3 +25,7 @@
 body {
   color: var(--white);
 }
+
+a {
+  text-decoration: none;
+}
