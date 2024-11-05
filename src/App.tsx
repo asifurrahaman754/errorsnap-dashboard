@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import RoutProvider from "./routes/Provider";
 import { cssColor } from "utils/colors";
 import { Toaster } from "react-hot-toast";
+import AppEvents from "components/AppEvents";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           background: cssColor("background"),
         }}
       >
+        <AppEvents />
         <RoutProvider />
       </Box>
     </>
