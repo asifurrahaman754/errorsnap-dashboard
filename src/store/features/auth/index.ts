@@ -3,12 +3,12 @@ import { user } from "types/user";
 
 export interface authState {
   user: user;
-  isLoading: boolean;
+  isInitialized: boolean;
 }
 
 const initialState: authState = {
   user: null,
-  isLoading: false,
+  isInitialized: false,
 };
 
 export const authSlice = createSlice({
@@ -17,9 +17,10 @@ export const authSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload;
+      state.isInitialized = true;
     },
-    setUserLoading: (state, action) => {
-      state.isLoading = action.payload;
+    setUserLoading: (state) => {
+      state.isInitialized = false;
     },
   },
 });

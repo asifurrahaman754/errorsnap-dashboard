@@ -49,6 +49,7 @@ export default function Login() {
         onSuccess: ({ data }) => {
           reset();
           dispatch(setUser(data?.data));
+          navigate("/projects");
           Cookies.set("token", data?.data?.token, { expires: 1 });
         },
         onError: (error: AxiosError<{ message: string }>) => {

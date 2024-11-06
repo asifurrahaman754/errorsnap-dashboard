@@ -16,6 +16,7 @@ import { setUser } from "store/features/auth";
 import { apiClient } from "utils/axios";
 import Cookies from "js-cookie";
 import { z } from "zod";
+import { useNavigate } from "react-router-dom";
 
 const schema = z
   .object({
@@ -39,6 +40,7 @@ const schema = z
   });
 
 export default function Register() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { mutate, isPending } = useMutation({
     mutationFn: async (projectData: z.infer<typeof schema>) => {
@@ -64,6 +66,7 @@ export default function Register() {
         onSuccess: ({ data }) => {
           reset();
           dispatch(setUser(data?.data));
+          navigate("/projects");
           Cookies.set("token", data?.data?.token, { expires: 1 });
         },
         onError: (error: AxiosError<{ message: string }>) => {

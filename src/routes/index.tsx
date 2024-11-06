@@ -7,10 +7,15 @@ import Projects from "pages/Projects";
 import Register from "pages/Register";
 import { Navigate } from "react-router-dom";
 import Invitations from "pages/Invitations";
+import AuthGuard from "components/AuthGuard";
 
 const routesConfig = [
   {
-    element: <DashboardLayout />,
+    element: (
+      <AuthGuard>
+        <DashboardLayout />
+      </AuthGuard>
+    ),
     children: [
       {
         path: "/projects",

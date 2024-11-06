@@ -3,8 +3,11 @@ import RoutProvider from "./routes/Provider";
 import { cssColor } from "utils/colors";
 import { Toaster } from "react-hot-toast";
 import AppEvents from "components/AppEvents";
+import AppLoader from "components/AppLoader";
 
 function App() {
+  console.log("render app");
+
   return (
     <>
       <Toaster />
@@ -16,7 +19,9 @@ function App() {
         }}
       >
         <AppEvents />
-        <RoutProvider />
+        <AppLoader>
+          <RoutProvider />
+        </AppLoader>
       </Box>
     </>
   );
