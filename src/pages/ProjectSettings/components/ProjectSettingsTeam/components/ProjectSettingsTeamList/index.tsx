@@ -5,36 +5,49 @@ import ProjectSettingsTeamAdd from "../ProjectSettingsTeamAdd";
 import useProjectTeamList from "hooks/useProjectTeamList";
 import ListContainer from "components/ListContainer";
 import ProjectSettingsTeamListRow from "../ProjectSettingsTeamListRow";
+import useProjectByUser from "hooks/useProjectByUser";
 
 export default function ProjectSettingsTeamList() {
   const [teamAddPopup, setTeamAddPopup] = useState(false);
   const { isFetching, data, error } = useProjectTeamList();
+  const { data: projectByUser, isFetching: isProjectFetching } =
+    useProjectByUser();
+
+  const isProjectOwner = !!projectByUser?.length;
 
   return (
     <>
-      <ListContainer loading={isFetching} error={error?.message}>
-        <Box
-          sx={{
-            mb: 2,
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <Button
-            variant="contained"
-            startIcon={<AddIcon fontSize={18} />}
-            onClick={() => setTeamAddPopup(true)}
+      <ListContainer
+        loading={isFetching && isProjectFetching}
+        error={error?.message}
+      >
+        {isProjectOwner ? (
+          <Box
+            sx={{
+              mb: 2,
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
           >
-            Invite Member
-          </Button>
-        </Box>
+            <Button
+              variant="contained"
+              startIcon={<AddIcon fontSize={18} />}
+              onClick={() => setTeamAddPopup(true)}
+            >
+              Invite Member
+            </Button>
+          </Box>
+        ) : null}
 
         <Paper sx={{ mb: 4 }}>
           <List>
             {data?.map((member, index) => (
               <React.Fragment key={member.id}>
                 {index > 0 && <Divider />}
-                <ProjectSettingsTeamListRow member={member} />
+                <ProjectSettingsTeamListRow
+                  member={member}
+                  projectOwner={isProjectOwner}
+                />
               </React.Fragment>
             ))}
           </List>

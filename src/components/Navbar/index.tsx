@@ -32,15 +32,16 @@ export default function Navbar() {
       >
         <PageContainer sx={{ height: "100%" }}>
           <Box height="100%" display="flex" alignItems="center">
-            <Typography
-              color="white"
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, cursor: "pointer" }}
-              onClick={RedirectToHome}
-            >
-              ErrorSnap
-            </Typography>
+            <Box sx={{ flexGrow: 1 }}>
+              <Typography
+                sx={{ cursor: "pointer", display: "inline-block" }}
+                color="white"
+                variant="h6"
+                onClick={RedirectToHome}
+              >
+                ErrorSnap
+              </Typography>
+            </Box>
 
             <MenuItems />
           </Box>

@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { setUser } from "store/features/auth";
 import { apiClient } from "utils/axios";
 import { cssColor } from "utils/colors";
-import Cookies from "js-cookie";
+import { setToken } from "utils/token";
 import { z } from "zod";
 
 const schema = z.object({
@@ -50,7 +50,7 @@ export default function Login() {
           reset();
           dispatch(setUser(data?.data));
           navigate("/projects");
-          Cookies.set("token", data?.data?.token, { expires: 1 });
+          setToken(data?.data?.token);
         },
         onError: (error: AxiosError<{ message: string }>) => {
           const errorMessage = error?.response?.data?.message;

@@ -6,8 +6,6 @@ import AppEvents from "components/AppEvents";
 import AppLoader from "components/AppLoader";
 
 function App() {
-  console.log("render app");
-
   return (
     <>
       <Toaster />

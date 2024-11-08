@@ -6,12 +6,13 @@ import useError from "hooks/useError";
 import { useParams } from "react-router-dom";
 import Loader from "components/Loader";
 import { cssColor } from "utils/colors";
+import BugIcon from "icons/BugIcon";
 
 export default function ProjectErrorDetails() {
   const { errorId } = useParams();
-  const { data, isFetching } = useError(errorId);
+  const { data, isLoading } = useError(errorId);
 
-  if (isFetching) {
+  if (isLoading) {
     return <Loader />;
   }
 
@@ -26,15 +27,18 @@ export default function ProjectErrorDetails() {
                 border: `1px solid ${cssColor("divider")}`,
                 borderRadius: 1,
                 color: cssColor("white"),
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
               }}
             >
-              <Typography variant="h5">{data?.message}</Typography>
+              <BugIcon /> <Typography variant="h5">{data?.message}</Typography>
             </Box>
           </Grid>
-          <Grid size={{ xs: 12, md: 10 }}>
+          <Grid size={{ xs: 12, lg: 9 }}>
             <ErrorBox error={data} />
           </Grid>
-          <Grid size={{ xs: 12, md: 2 }}>
+          <Grid size={{ xs: 12, lg: 3 }}>
             <ErrorMeta error={data} />
           </Grid>
         </Grid>

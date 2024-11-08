@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import ListContainer from "components/ListContainer";
 import { project } from "types/project";
 import { useLocation } from "react-router-dom";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { queryStringParse } from "utils/querystring";
 
 export default function ProjectList() {
@@ -19,9 +19,8 @@ export default function ProjectList() {
     data: projects,
     isFetching,
     error,
-    refetch,
   } = useQuery({
-    queryKey: ["user-projects"],
+    queryKey: ["user-projects", queryString?.filterBy],
     queryFn: async (): Promise<project[]> => {
       const response = await apiClient.get(
         `/user-projects?filterBy=${queryString?.filterBy}`
@@ -29,10 +28,6 @@ export default function ProjectList() {
       return response.data?.data;
     },
   });
-
-  useEffect(() => {
-    refetch();
-  }, [queryString.filterBy, refetch]);
 
   return (
     <ListContainer loading={isFetching} error={error?.message}>

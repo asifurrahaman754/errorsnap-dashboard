@@ -39,7 +39,7 @@ export const CustomDialog = ({
   return (
     <Dialog
       open={open}
-      onClose={onClose}
+      onClose={!disabled ? onClose : null}
       fullWidth
       PaperProps={{
         sx: {
