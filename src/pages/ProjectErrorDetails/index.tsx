@@ -10,7 +10,13 @@ import BugIcon from "icons/BugIcon";
 
 export default function ProjectErrorDetails() {
   const { errorId } = useParams();
-  const { data, isLoading } = useError(errorId);
+  const { data, isLoading, isFetching, refetch } = useError(errorId, true, {
+    refetchOnWindowFocus: false,
+  });
+
+  const handleUpdate = async () => {
+    await refetch();
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -39,7 +45,11 @@ export default function ProjectErrorDetails() {
             <ErrorBox error={data} />
           </Grid>
           <Grid size={{ xs: 12, lg: 3 }}>
-            <ErrorMeta error={data} />
+            <ErrorMeta
+              error={data}
+              loading={isFetching}
+              update={handleUpdate}
+            />
           </Grid>
         </Grid>
       </PageContainer>

@@ -3,7 +3,7 @@ import { Box, Chip, IconButton, ListItem, ListItemText } from "@mui/material";
 import { teamMember } from "types/team";
 import DeleteIcon from "icons/DeleteIcon";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import useDeleteDialog from "hooks/useDeleteDialog";
+import useConfirmDialog from "hooks/useConfirmDialog";
 import { apiClient } from "utils/axios";
 import { key } from "hooks/useProjectTeamList";
 import useAuthUser from "hooks/useAuthUser";
@@ -19,14 +19,13 @@ export default function ProjectSettingsTeamListRow({
   const isSelfAccount = member.email === user.email;
 
   const queryClient = useQueryClient();
-  const { isPending, mutateAsync } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: async (memberId: number) => {
       return await apiClient.post(`/remove-member/${memberId}`);
     },
   });
 
-  const { component, handleDelete } = useDeleteDialog(mutateAsync, {
-    isPending,
+  const { component, handleDelete } = useConfirmDialog(mutateAsync, {
     onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
     description: "Are you sure you want to remove this user from the team?",
     title: "Remove Member",

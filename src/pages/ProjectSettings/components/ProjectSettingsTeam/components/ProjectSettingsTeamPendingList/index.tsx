@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import ListContainer from "components/ListContainer";
-import useDeleteDialog from "hooks/useDeleteDialog";
+import useDeleteDialog from "hooks/useConfirmDialog";
 import useTeamPendingList, { key } from "hooks/useTeamPendingList";
 import CloseIcon from "icons/CloseIcon";
 import React from "react";
@@ -19,14 +19,13 @@ import { cssColor } from "utils/colors";
 export default function ProjectSettingsTeamPendingList() {
   const queryClient = useQueryClient();
   const { isFetching, data, error } = useTeamPendingList();
-  const { isPending, mutateAsync } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: async (memberId: number) => {
       return await apiClient.post(`/cancel-invitation/${memberId}`);
     },
   });
 
   const { component, handleDelete } = useDeleteDialog(mutateAsync, {
-    isPending,
     onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
   });
 

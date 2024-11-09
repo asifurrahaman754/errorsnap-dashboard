@@ -1,27 +1,30 @@
-import React, { useCallback, useState } from "react";
+import React, { ReactNode, useCallback, useState } from "react";
 import { setFunction, zeroArgsFunction } from "types/function";
-import DialogDelete from "components/DialogDelete";
 import toast from "react-hot-toast";
+import { CustomDialog } from "components/CustomDialog";
+import { CircularProgress, Typography } from "@mui/material";
+import DeleteIcon from "icons/DeleteIcon";
 
-export interface useDeleteDialogProps {
+export interface useConfirmDialogProps {
   title?: string;
   description?: string;
   successMessage?: string;
-  isPending?: boolean;
   onAfterDelete?: zeroArgsFunction;
+  startIcon?: ReactNode;
 }
 
-function useDeleteDialog<T1 = string | number>(
+function useConfirmDialog<T1 = string | number>(
   onDelete: setFunction<T1>,
   {
     title,
     description,
     successMessage,
-    isPending,
     onAfterDelete,
-  }: useDeleteDialogProps
+    startIcon = <DeleteIcon />,
+  }: useConfirmDialogProps
 ) {
   const [deleteId, setDeleteId] = useState<T1>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleDelete = useCallback((id: T1) => setDeleteId(id), []);
 
@@ -33,31 +36,34 @@ function useDeleteDialog<T1 = string | number>(
     if (!deleteId) {
       return;
     }
+    setLoading(true);
 
     try {
       await onDelete(deleteId);
-      toast.success(successMessage || "Successfully deleted");
-
       if (onAfterDelete) {
         await onAfterDelete();
       }
+      toast.success(successMessage || "Successfully deleted");
     } catch (error) {
       toast.error(String(error));
     } finally {
       handleClose();
+      setLoading(false);
     }
   }, [onDelete, deleteId, handleClose, successMessage, onAfterDelete]);
 
   const component = (
-    <DialogDelete
+    <CustomDialog
       open={!!deleteId}
       onSubmit={handleConfirm}
       onClose={handleClose}
+      maxWidth="xs"
       title={title}
-      disabled={isPending}
+      disabled={loading}
+      startIcon={loading ? <CircularProgress /> : startIcon}
     >
-      {description}
-    </DialogDelete>
+      <Typography>{description}</Typography>
+    </CustomDialog>
   );
 
   return {
@@ -66,4 +72,4 @@ function useDeleteDialog<T1 = string | number>(
   };
 }
 
-export default useDeleteDialog;
+export default useConfirmDialog;

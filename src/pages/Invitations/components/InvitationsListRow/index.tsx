@@ -1,7 +1,7 @@
 import { Box, Button, TableCell, TableRow } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { key } from "hooks/useAllInvitations";
-import useDeleteDialog from "hooks/useDeleteDialog";
+import useConfirmDialog from "hooks/useConfirmDialog";
 import CheckIcon from "icons/CheckIcon";
 import CloseIcon from "icons/CloseIcon";
 import React from "react";
@@ -15,32 +15,27 @@ export default function InvitationsListRow({
   invitation: invitation;
 }) {
   const queryClient = useQueryClient();
-  const { isPending: isPendingCancel, mutateAsync: cancelMutate } = useMutation(
-    {
-      mutationFn: async (id: number) => {
-        return await apiClient.post(`/cancel-invitation/${id}`);
-      },
-    }
-  );
+  const { mutateAsync: cancelMutate } = useMutation({
+    mutationFn: async (id: number) => {
+      return await apiClient.post(`/cancel-invitation/${id}`);
+    },
+  });
 
-  const { isPending: isPendingApprove, mutateAsync: approveMutate } =
-    useMutation({
-      mutationFn: async (id: number) => {
-        return await apiClient.post(`/approve-member/${id}`);
-      },
-    });
+  const { mutateAsync: approveMutate } = useMutation({
+    mutationFn: async (id: number) => {
+      return await apiClient.post(`/approve-member/${id}`);
+    },
+  });
 
   const { component: cancelDialog, handleDelete: handleCancel } =
-    useDeleteDialog(cancelMutate, {
-      isPending: isPendingCancel,
+    useConfirmDialog(cancelMutate, {
       onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
       description: "Are you sure you want to cancel the invitation?",
       title: "Cancel Invitation?",
     });
 
   const { component: approveDialog, handleDelete: handleApprove } =
-    useDeleteDialog(approveMutate, {
-      isPending: isPendingApprove,
+    useConfirmDialog(approveMutate, {
       onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
       description: "Are you sure you want to accept the invitation?",
       title: "Accept Invitation?",

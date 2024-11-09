@@ -8,6 +8,7 @@ import Register from "pages/Register";
 import { Navigate } from "react-router-dom";
 import Invitations from "pages/Invitations";
 import AuthGuard from "components/AuthGuard";
+import AssignedErrors from "pages/AssignedErrors";
 
 const routesConfig = [
   {
@@ -40,6 +41,10 @@ const routesConfig = [
       {
         path: "/invitations",
         element: <Invitations />,
+      },
+      {
+        path: "/assigned-errors",
+        element: <AssignedErrors />,
       },
     ],
   },

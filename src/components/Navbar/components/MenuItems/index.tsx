@@ -90,7 +90,9 @@ export default function MenuItems() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={handleClose}>Assigned Errors</MenuItem>
+        <Link to="/assigned-errors">
+          <MenuItem onClick={handleClose}>Assigned Errors</MenuItem>
+        </Link>
         <Link to="/invitations">
           <MenuItem onClick={handleClose}>Invitations</MenuItem>
         </Link>

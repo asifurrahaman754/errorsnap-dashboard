@@ -98,10 +98,10 @@ const theme = {
             color: "#FFFFFF",
           },
           "& .Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#424242",
+            borderColor: cssColor("textSecondary"),
           },
           "& .Mui-disabled .MuiInputBase-input": {
-            color: "#757575",
+            color: cssColor("white"),
           },
           "& .Mui-error .MuiOutlinedInput-notchedOutline": {
             borderColor: cssColor("error"),
@@ -117,37 +117,8 @@ const theme = {
     },
     MuiSelect: {
       styleOverrides: {
-        root: {
-          "& .MuiOutlinedInput-root": {
-            backgroundColor: "#333333",
-            "& fieldset": {
-              borderColor: "#616161",
-            },
-            "&:hover fieldset": {
-              borderColor: "#B0BEC5",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "#1E88E5",
-            },
-          },
-          "& .MuiInputBase-input": {
-            color: "#FFFFFF",
-          },
-          "& .Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#424242",
-          },
-          "& .Mui-disabled .MuiInputBase-input": {
-            color: "#757575",
-          },
-          "& .Mui-error .MuiOutlinedInput-notchedOutline": {
-            borderColor: cssColor("error"),
-          },
-          "& .Mui-error .MuiInputBase-input": {
-            color: cssColor("error"),
-          },
-        },
         icon: {
-          color: "#FFFFFF",
+          color: cssColor("white"),
         },
       },
     },

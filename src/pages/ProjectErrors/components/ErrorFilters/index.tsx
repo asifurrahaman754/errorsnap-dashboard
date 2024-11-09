@@ -12,6 +12,7 @@ export default function ErrorFilters() {
   return (
     <Box display="flex" alignItems="center" gap={3}>
       <TextField
+        size="small"
         placeholder="Search errors by name..."
         slotProps={{
           input: {
@@ -26,7 +27,17 @@ export default function ErrorFilters() {
         fullWidth
       />
 
-      <Select value={0} label="Status" onChange={null}>
+      <Select
+        size="small"
+        sx={{
+          ".MuiOutlinedInput-notchedOutline": {
+            borderColor: cssColor("divider"),
+          },
+        }}
+        value={0}
+        label="Status"
+        onChange={null}
+      >
         <MenuItem value={0}>Unresolve</MenuItem>
         <MenuItem value={1}>Pending</MenuItem>
         <MenuItem value={2}>Resolved</MenuItem>

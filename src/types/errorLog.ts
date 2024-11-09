@@ -8,7 +8,13 @@ export type errorLog = {
   stack: string;
   os: string;
   browser: string;
-  status: number;
+  status: errorLogStatus;
   created_at: string;
   assignee_id: number;
 };
+
+export enum errorLogStatus {
+  UNRESOLVED = 0,
+  PENDING = 1,
+  RESOLVED = 2,
+}
