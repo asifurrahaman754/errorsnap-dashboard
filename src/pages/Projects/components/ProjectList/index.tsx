@@ -1,12 +1,10 @@
 import { Grid2 as Grid } from "@mui/material";
 import Project from "../Project";
-import { apiClient } from "utils/axios";
-import { useQuery } from "@tanstack/react-query";
 import ListContainer from "components/ListContainer";
-import { project } from "types/project";
 import { useLocation } from "react-router-dom";
 import { useMemo } from "react";
 import { queryStringParse } from "utils/querystring";
+import useProjects from "hooks/useProjects";
 
 export default function ProjectList() {
   const location = useLocation();
@@ -19,15 +17,7 @@ export default function ProjectList() {
     data: projects,
     isFetching,
     error,
-  } = useQuery({
-    queryKey: ["user-projects", queryString?.filterBy],
-    queryFn: async (): Promise<project[]> => {
-      const response = await apiClient.get(
-        `/user-projects?filterBy=${queryString?.filterBy}`
-      );
-      return response.data?.data;
-    },
-  });
+  } = useProjects({ filterBy: queryString?.filterBy });
 
   return (
     <ListContainer loading={isFetching} error={error?.message}>

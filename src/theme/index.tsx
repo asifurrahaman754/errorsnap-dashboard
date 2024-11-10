@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { cssColor } from "utils/colors";
 
 export const BREAKPOINTS = {
@@ -67,6 +68,9 @@ const theme = {
     divider: "#424242",
     error: {
       main: "#ff7f50",
+    },
+    red: {
+      main: "#891422",
     },
     action: {
       hover: "rgba(255, 255, 255, 0.08)",
@@ -166,6 +170,11 @@ export interface CustomColorNames {
   divider: true;
   error: true;
   hover: true;
+  red: true;
+}
+
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides extends CustomColorNames {}
 }
 
 export default theme;

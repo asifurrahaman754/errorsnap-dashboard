@@ -56,6 +56,8 @@ export default function ErrorBox({ error }: { error: errorLog }) {
           borderRadius: 1,
           p: 2,
           color: cssColor("error"),
+          minWidth: "400px",
+          overflow: "auto",
         }}
       >
         <pre>{error?.stack}</pre>

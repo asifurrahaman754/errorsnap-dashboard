@@ -1,14 +1,16 @@
-import { Box, Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Button, Grid2 as Grid, Typography } from "@mui/material";
 import ErrorBox from "./components/ErrorBox";
 import ErrorMeta from "./components/ErrorMeta";
 import PageContainer from "components/PageContainer";
 import useError from "hooks/useError";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loader from "components/Loader";
 import { cssColor } from "utils/colors";
 import BugIcon from "icons/BugIcon";
+import BackIcon from "icons/BackIcon";
 
 export default function ProjectErrorDetails() {
+  const navigate = useNavigate();
   const { errorId } = useParams();
   const { data, isLoading, isFetching, refetch } = useError(errorId, true, {
     refetchOnWindowFocus: false,
@@ -16,6 +18,10 @@ export default function ProjectErrorDetails() {
 
   const handleUpdate = async () => {
     await refetch();
+  };
+
+  const handleGoBackPage = () => {
+    navigate(-1);
   };
 
   if (isLoading) {
@@ -26,6 +32,15 @@ export default function ProjectErrorDetails() {
     <>
       <PageContainer>
         <Grid container spacing={2}>
+          <Grid size={12}>
+            <Button
+              color="white"
+              onClick={handleGoBackPage}
+              startIcon={<BackIcon />}
+            >
+              Go back
+            </Button>
+          </Grid>
           <Grid size={12}>
             <Box
               sx={{
