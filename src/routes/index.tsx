@@ -39,6 +39,10 @@ const routesConfig = [
         element: <ProjectSettings />,
       },
       {
+        path: "/projects/:projectId/settings/integration",
+        element: <ProjectSettings />,
+      },
+      {
         path: "/invitations",
         element: <Invitations />,
       },

@@ -10,16 +10,17 @@ import {
   Typography,
 } from "@mui/material";
 import { cssColor } from "utils/colors";
-import { apiClient } from "utils/axios";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import ListContainer from "components/ListContainer";
 import { errorStatus } from "types/logs";
 import { getTimeAgo } from "utils/time";
-import { errorLog } from "types/errorLog";
 import { getBrowserIcon } from "utils/icon";
+import useErrors from "hooks/useErrors";
+import useFilterChange from "hooks/useFilterChange";
 
 export default function ErrorTable() {
+  const { value: status } = useFilterChange("status", 0);
+  const { value: query } = useFilterChange("query", "");
   const location = useLocation();
   const { projectId } = useParams();
 
@@ -27,12 +28,10 @@ export default function ErrorTable() {
     data: errorLogs,
     isLoading,
     error,
-  } = useQuery({
-    queryKey: ["projects-errors"],
-    queryFn: async (): Promise<errorLog[]> => {
-      const response = await apiClient.get(`/error-logs/${projectId}`);
-      return response.data?.data;
-    },
+  } = useErrors({
+    projectId,
+    query,
+    status,
   });
 
   return (

@@ -7,6 +7,8 @@ import SettingsWithSidebarContainer, {
 } from "./components/SettingsWithSidebarContainer";
 import ProjectSettingsTeam from "./components/ProjectSettingsTeam";
 import ProjectSettingsGeneral from "./components/ProjectSettingsGeneral";
+import ProjectSettingsIntegration from "./components/ProjectSettingsIntegration";
+import PlugIcon from "icons/PlugIcon";
 
 const menuItems: menuItem[] = [
   {
@@ -20,6 +22,12 @@ const menuItems: menuItem[] = [
     label: "Team",
     component: <ProjectSettingsTeam />,
     path: (projectId) => `/projects/${projectId}/settings/team`,
+  },
+  {
+    icon: <PlugIcon fontSize={20} color="white" />,
+    label: "Integration",
+    component: <ProjectSettingsIntegration />,
+    path: (projectId) => `/projects/${projectId}/settings/integration`,
   },
 ];
 

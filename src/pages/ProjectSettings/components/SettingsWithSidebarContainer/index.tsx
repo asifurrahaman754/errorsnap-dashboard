@@ -35,7 +35,7 @@ export default function SettingsWithSidebarContainer({
   );
 
   const handleGoBackPage = () => {
-    navigate(-1);
+    navigate(`/projects/${projectId}/errors`);
   };
 
   return (
