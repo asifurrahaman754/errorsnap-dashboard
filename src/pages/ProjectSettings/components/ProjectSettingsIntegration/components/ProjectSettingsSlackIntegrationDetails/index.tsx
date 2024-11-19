@@ -22,7 +22,7 @@ export default function ProjectSettingsSlackIntegrationDetails({
 }) {
   const { projectId } = useParams();
   const inputRef = useRef();
-  const [channelId, setchannelId] = useState(data?.channel_id);
+  const [channelId, setchannelId] = useState(data?.channel_id || "");
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: { channelId: string; projectId: string }) => {
       const result = await apiClient.post(`/slack/add-channel`, data);
