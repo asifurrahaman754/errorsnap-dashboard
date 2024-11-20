@@ -27,7 +27,6 @@ export const authSlice = createSlice({
     },
     removeUser: (state) => {
       state.user = null;
-      state.isInitialized = false;
     },
   },
 });

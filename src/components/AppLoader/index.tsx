@@ -3,9 +3,9 @@ import useAuthUser from "hooks/useAuthUser";
 import React, { ReactNode } from "react";
 
 export default function AppLoader({ children }: { children: ReactNode }) {
-  const { isLoading } = useAuthUser();
+  const { isInitialized } = useAuthUser();
 
-  return !isLoading ? (
+  return isInitialized ? (
     children
   ) : (
     <Dialog open={true} title={null} onClose={null} fullScreen>

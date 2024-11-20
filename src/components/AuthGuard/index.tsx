@@ -3,16 +3,16 @@ import useAuthUser from "hooks/useAuthUser";
 import { useNavigate } from "react-router-dom";
 
 const AuthGuard = ({ children = null }: { children: ReactNode }) => {
-  const { user, isInitialized } = useAuthUser();
+  const { user } = useAuthUser();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user && isInitialized) {
+    if (!user) {
       navigate("/login");
     }
-  }, [user, navigate, isInitialized]);
+  }, [user, navigate]);
 
-  return user && isInitialized ? <>{children}</> : null;
+  return user ? <>{children}</> : null;
 };
 
 export default AuthGuard;

@@ -15,12 +15,12 @@ export default function ProjectList() {
 
   const {
     data: projects,
-    isFetching,
+    isLoading,
     error,
   } = useProjects({ filterBy: queryString?.filterBy });
 
   return (
-    <ListContainer loading={isFetching} error={error?.message}>
+    <ListContainer loading={isLoading} error={error?.message}>
       <Grid container spacing={2}>
         {projects?.map((project) => (
           <Grid key={project.id} size={{ xs: 12, sm: 6, lg: 4 }}>

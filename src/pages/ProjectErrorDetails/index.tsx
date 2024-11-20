@@ -11,7 +11,8 @@ import BackIcon from "icons/BackIcon";
 
 export default function ProjectErrorDetails() {
   const navigate = useNavigate();
-  const { errorId } = useParams();
+  const { errorId, projectId } = useParams();
+
   const { data, isLoading, isFetching, refetch } = useError(errorId, true, {
     refetchOnWindowFocus: false,
   });
@@ -21,7 +22,7 @@ export default function ProjectErrorDetails() {
   };
 
   const handleGoBackPage = () => {
-    navigate(-1);
+    navigate(`/projects/${projectId}/errors`);
   };
 
   if (isLoading) {

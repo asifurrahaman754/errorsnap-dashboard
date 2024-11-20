@@ -2,9 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { apiClient } from "utils/axios";
 import { useDispatch } from "react-redux";
 import { setUser, setUserLoading } from "store/features/auth";
-import Cookies from "js-cookie";
-
-const prevToken = Cookies.get("token");
 
 export default function AppEvents() {
   const dispatch = useDispatch();
@@ -21,7 +18,6 @@ export default function AppEvents() {
       }
     },
     refetchOnWindowFocus: false,
-    enabled: !!prevToken,
   });
 
   return null;
