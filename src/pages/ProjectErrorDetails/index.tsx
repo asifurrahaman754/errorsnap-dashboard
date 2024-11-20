@@ -13,9 +13,14 @@ export default function ProjectErrorDetails() {
   const navigate = useNavigate();
   const { errorId, projectId } = useParams();
 
-  const { data, isLoading, isFetching, refetch } = useError(errorId, true, {
-    refetchOnWindowFocus: false,
-  });
+  const { data, isLoading, isFetching, refetch, error } = useError(
+    errorId,
+    true,
+    {
+      refetchOnWindowFocus: false,
+      retry: false,
+    }
+  );
 
   const handleUpdate = async () => {
     await refetch();
@@ -27,6 +32,14 @@ export default function ProjectErrorDetails() {
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (error) {
+    return (
+      <Box width="100%" textAlign="center" p={4}>
+        <Typography color={cssColor("error")}>{error}</Typography>
+      </Box>
+    );
   }
 
   return (

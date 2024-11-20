@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { FormHelperText, TextField } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { CustomDialog } from "components/CustomDialog";
@@ -73,6 +73,9 @@ export default function ProjectSettingsTeamAdd({
         helperText={errors?.email?.message}
         {...register("email")}
       />
+      <FormHelperText>
+        The user must be a registered user to send the invitation
+      </FormHelperText>
     </CustomDialog>
   );
 }

@@ -9,18 +9,17 @@ import useProjectByUser from "hooks/useProjectByUser";
 
 export default function ProjectSettingsTeamList() {
   const [teamAddPopup, setTeamAddPopup] = useState(false);
-  const { isFetching, data, error } = useProjectTeamList();
-  const { data: projectByUser, isFetching: isProjectFetching } =
+  const { isLoading, data, error } = useProjectTeamList(true, {
+    retry: false,
+  });
+  const { data: projectByUser, isLoading: isProjectFetching } =
     useProjectByUser();
 
   const isProjectOwner = !!projectByUser?.length;
 
   return (
     <>
-      <ListContainer
-        loading={isFetching && isProjectFetching}
-        error={error?.message}
-      >
+      <ListContainer loading={isLoading || isProjectFetching} error={error}>
         {isProjectOwner ? (
           <Box
             sx={{

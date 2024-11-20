@@ -1,6 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { slackDetails } from "types/slack";
 import { apiClient } from "utils/axios";
+import { getFormattedError } from "utils/error";
 
 export const key = "slack-details";
 
@@ -19,7 +20,10 @@ const useSlackDetails = (
     ...options,
   });
 
-  return data;
+  return {
+    ...data,
+    error: data.isError ? getFormattedError(data.error) : "",
+  };
 };
 
 export default useSlackDetails;

@@ -1,6 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { errorLog } from "types/errorLog";
 import { apiClient } from "utils/axios";
+import { getFormattedError } from "utils/error";
 
 export const key = "single-error";
 
@@ -19,7 +20,10 @@ const useError = (
     ...options,
   });
 
-  return data;
+  return {
+    ...data,
+    error: data.isError ? getFormattedError(data.error) : "",
+  };
 };
 
 export default useError;

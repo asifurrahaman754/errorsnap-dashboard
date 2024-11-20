@@ -18,7 +18,9 @@ import { cssColor } from "utils/colors";
 
 export default function ProjectSettingsTeamPendingList() {
   const queryClient = useQueryClient();
-  const { isFetching, data, error } = useTeamPendingList();
+  const { isLoading, data, error } = useTeamPendingList(true, {
+    retry: false,
+  });
   const { mutateAsync } = useMutation({
     mutationFn: async (memberId: number) => {
       return await apiClient.post(`/cancel-invitation/${memberId}`);
@@ -33,9 +35,9 @@ export default function ProjectSettingsTeamPendingList() {
     <>
       {component}
       <ListContainer
-        loading={isFetching}
+        loading={isLoading}
         count={data?.length}
-        error={error?.message}
+        error={error}
         emptyText={"No pending invitation!"}
       >
         <Paper>

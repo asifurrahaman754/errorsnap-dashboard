@@ -9,12 +9,18 @@ import useProject from "hooks/useProject";
 
 export default function ProjectErrors() {
   const { projectId } = useParams();
-  const { data: project, isLoading, error } = useProject(projectId);
+  const {
+    data: project,
+    isLoading,
+    error,
+  } = useProject(projectId, true, {
+    retry: false,
+  });
 
   return (
     <>
       <PageContainer>
-        <ListContainer loading={isLoading} error={error?.message}>
+        <ListContainer loading={isLoading} error={error}>
           <Grid container rowSpacing={2}>
             <Grid size={12}>
               <ProjectErrorsHeader projectName={project?.name} />

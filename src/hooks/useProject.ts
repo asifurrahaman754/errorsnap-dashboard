@@ -1,6 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { project } from "types/project";
 import { apiClient } from "utils/axios";
+import { getFormattedError } from "utils/error";
 
 export const key = "single-project";
 
@@ -19,7 +20,10 @@ const useProject = (
     ...options,
   });
 
-  return data;
+  return {
+    ...data,
+    error: data.isError ? getFormattedError(data.error) : "",
+  };
 };
 
 export default useProject;
