@@ -28,7 +28,12 @@ export default function ProjectErrorsHeader({
         </Copy>
       </Grid>
       <Grid size={{ xs: 12, md: 6 }} textAlign="right">
-        <Button variant="outlined" startIcon={<DownloadIcon />} sx={{ mr: 2 }}>
+        <Button
+          disabled={true}
+          variant="outlined"
+          startIcon={<DownloadIcon />}
+          sx={{ mr: 2 }}
+        >
           Export Logs
         </Button>
         <Link to={`/projects/${projectId}/settings/team`}>

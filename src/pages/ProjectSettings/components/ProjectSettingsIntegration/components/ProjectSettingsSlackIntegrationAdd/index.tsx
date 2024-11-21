@@ -49,7 +49,8 @@ export default function ProjectSettingsSlackIntegrationAdd() {
           <Typography variant="h5">Slack</Typography>
         </Box>
         <Typography variant="body2" color="textSecondary">
-          connect slack to get error messages directly in your slack workspace
+          connect your slack workspace to get your project error messages <br />{" "}
+          directly in your slack workspace
         </Typography>
       </Box>
       <Button onClick={connectToSlack} variant="contained" color="white">

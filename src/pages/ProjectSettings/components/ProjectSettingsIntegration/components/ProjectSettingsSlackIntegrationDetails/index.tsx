@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   CircularProgress,
+  FormHelperText,
   TextField,
   Typography,
 } from "@mui/material";
@@ -73,14 +74,19 @@ export default function ProjectSettingsSlackIntegrationDetails({
           </Typography>
         </Box>
         <Box display="flex" alignItems="center" gap={1}>
-          <TextField
-            value={channelId}
-            onChange={(e) => setchannelId(e.target.value)}
-            ref={inputRef}
-            label="Channel Id"
-            sx={{ maxWidth: "250px", width: "100%" }}
-            disabled={isPending || !!data?.channel_id}
-          />
+          <Box display="flex" flexDirection="column">
+            <TextField
+              value={channelId}
+              onChange={(e) => setchannelId(e.target.value)}
+              ref={inputRef}
+              label="Channel Id"
+              sx={{ maxWidth: "250px", width: "100%" }}
+              disabled={isPending || !!data?.channel_id}
+            />
+            <FormHelperText>
+              The errorSnap bot will be added to the given channel
+            </FormHelperText>
+          </Box>
           <Button
             disabled={isPending || !!data?.channel_id}
             startIcon={isPending ? <CircularProgress size={15} /> : null}
