@@ -4,6 +4,7 @@ import { cssColor } from "utils/colors";
 import { Toaster } from "react-hot-toast";
 import AppEvents from "components/AppEvents";
 import AppLoader from "components/AppLoader";
+import GlobalFetchingLoader from "components/GlobalFetchingLoader";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       >
         <AppEvents />
         <AppLoader>
+          <GlobalFetchingLoader />
           <RoutProvider />
         </AppLoader>
       </Box>
