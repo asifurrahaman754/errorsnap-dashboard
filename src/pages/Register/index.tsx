@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   CircularProgress,
   Grid2 as Grid,
@@ -161,6 +162,20 @@ export default function Register() {
         >
           Submit
         </Button>
+      </Grid>
+      <Grid size={12} mt={1}>
+        <Box display="flex" flexWrap="wrap" alignItems="center" gap={1}>
+          <Typography>Already have a account?</Typography>
+          <Button
+            variant="text"
+            onClick={() => {
+              navigate("/login");
+            }}
+            sx={{ p: 0, minWidth: "auto" }}
+          >
+            <Typography sx={{ textDecoration: "underline" }}>login</Typography>
+          </Button>
+        </Box>
       </Grid>
     </AuthFormWrapper>
   );

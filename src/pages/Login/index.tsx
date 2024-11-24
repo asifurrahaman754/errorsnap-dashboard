@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   CircularProgress,
   Grid2 as Grid,
@@ -15,7 +16,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "store/features/auth";
 import { apiClient } from "utils/axios";
-import { cssColor } from "utils/colors";
 import { setToken } from "utils/token";
 import { z } from "zod";
 
@@ -112,18 +112,21 @@ export default function Login() {
           Submit
         </Button>
       </Grid>
-      <Grid size={12}>
-        <Button
-          variant="text"
-          onClick={() => {
-            navigate("/register");
-          }}
-          sx={{
-            color: cssColor("white"),
-          }}
-        >
-          register
-        </Button>
+      <Grid size={12} mt={1}>
+        <Box display="flex" flexWrap="wrap" alignItems="center" gap={1}>
+          <Typography>New here?</Typography>
+          <Button
+            variant="text"
+            onClick={() => {
+              navigate("/register");
+            }}
+            sx={{ p: 0, minWidth: "auto" }}
+          >
+            <Typography sx={{ textDecoration: "underline" }}>
+              register
+            </Typography>
+          </Button>
+        </Box>
       </Grid>
     </AuthFormWrapper>
   );
