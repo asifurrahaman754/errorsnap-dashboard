@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
+import { ThemeOptions } from "@mui/material";
 import { cssColor } from "utils/colors";
 
 export const BREAKPOINTS = {
@@ -10,7 +11,7 @@ export const BREAKPOINTS = {
   xxl: 1400,
 };
 
-const theme = {
+const theme: ThemeOptions = {
   typography: {
     allVariants: {
       color: cssColor("textPrimary"),
@@ -56,10 +57,10 @@ const theme = {
     secondary: {
       main: "#FF4081",
     },
+    backgroundShade: "#1a1c20",
     background: {
       default: "#121212",
       paper: "#1F1F1F",
-      shade: "#1a1c20",
     },
     text: {
       primary: "#dbe5ea",
@@ -69,9 +70,7 @@ const theme = {
     error: {
       main: "#ff7f50",
     },
-    red: {
-      main: "#891422",
-    },
+    red: "#891422",
     action: {
       hover: "rgba(255, 255, 255, 0.08)",
     },
@@ -163,7 +162,7 @@ export interface CustomColorNames {
   white: true;
   secondary: true;
   background: true;
-  backgroundShade: true;
+  backgroundShade: string;
   paper: true;
   textPrimary: true;
   textSecondary: true;
@@ -175,6 +174,20 @@ export interface CustomColorNames {
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides extends CustomColorNames {}
+}
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    white: string;
+    red: string;
+    backgroundShade: string;
+  }
+
+  interface PaletteOptions {
+    white?: string;
+    red?: string;
+    backgroundShade?: string;
+  }
 }
 
 export default theme;

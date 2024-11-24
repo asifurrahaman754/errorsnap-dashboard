@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "ESNext",
     "jsx": "preserve",
     "baseUrl": "./src",
+    "skipLibCheck": true,
     "lib": ["ES2015", "DOM"],
     "paths": {
       "utils/*": ["utils/*"],
@@ -12,7 +16,6 @@
       "hooks/*": ["hooks/*"],
       "store/*": ["store/*"],
       "layouts/*": ["layouts/*"],
-      "libs/*": ["libs/*"],
       "routes/*": ["routes/*"],
       "test_utils/*": ["test_utils/*"],
       "theme/*": ["theme/*"],

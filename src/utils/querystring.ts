@@ -1,12 +1,11 @@
 import { keyValueObject } from "types/types";
 
-/* eslint-disable no-param-reassign */
 export const queryStringParse = (str: string): keyValueObject<string> => {
   if (!str) return {};
 
   const pairs = str.startsWith("?") ? str.slice(1).split("&") : str.split("&");
   return pairs.reduce((acc, pair) => {
-    let current: any = acc;
+    let current = acc;
     const [key, value] = pair.split("=");
     if (key.indexOf("[") !== -1) {
       const keyPartsWithBrac = key
@@ -38,8 +37,9 @@ export const queryStringStringify = (obj?: keyValueObject): string => {
       if (obj[key].length === 0) {
         params.push(`${encodeURIComponent(key as string)}=`);
       } else {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        obj[key].forEach((arrValue: any, arrKey: string) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        obj[key].forEach((arrValue, arrKey: string) => {
           if (typeof arrValue === "object" && !!arrValue) {
             Object.keys(arrValue).forEach((arrValueKey) => {
               if (
