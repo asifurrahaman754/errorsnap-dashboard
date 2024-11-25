@@ -1,5 +1,4 @@
 {
-  "include": ["src/**/*"],
   "compilerOptions": {
     "esModuleInterop": true,
     "moduleResolution": "node",
