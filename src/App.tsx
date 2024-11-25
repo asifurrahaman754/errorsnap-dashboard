@@ -7,7 +7,7 @@ import AppLoader from "components/AppLoader";
 import GlobalFetchingLoader from "components/GlobalFetchingLoader";
 
 function App() {
-  console.log("app running, hurray :)");
+  console.log("app running");
 
   return (
     <>
