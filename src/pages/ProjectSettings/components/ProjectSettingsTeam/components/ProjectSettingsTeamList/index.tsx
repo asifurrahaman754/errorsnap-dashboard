@@ -19,7 +19,11 @@ export default function ProjectSettingsTeamList() {
 
   return (
     <>
-      <ListContainer loading={isLoading || isProjectFetching} error={error}>
+      <ListContainer
+        count={data?.length}
+        loading={isLoading || isProjectFetching}
+        error={error}
+      >
         {isProjectOwner ? (
           <Box
             sx={{

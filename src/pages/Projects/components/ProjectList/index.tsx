@@ -20,7 +20,12 @@ export default function ProjectList() {
   } = useProjects({ filterBy: queryString?.filterBy });
 
   return (
-    <ListContainer loading={isLoading} error={error?.message}>
+    <ListContainer
+      count={projects?.length}
+      loading={isLoading}
+      error={error?.message}
+      emptyText="No project found!"
+    >
       <Grid container spacing={2}>
         {projects?.map((project) => (
           <Grid key={project.id} size={{ xs: 12, sm: 6, lg: 4 }}>

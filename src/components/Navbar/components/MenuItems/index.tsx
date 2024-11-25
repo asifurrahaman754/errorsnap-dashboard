@@ -16,8 +16,10 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "store/features/auth";
 import { removeToken } from "utils/token";
 import useAuthUser from "hooks/useAuthUser";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function MenuItems() {
+  const queryClient = useQueryClient();
   const { user } = useAuthUser();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -34,6 +36,7 @@ export default function MenuItems() {
     dispatch(removeUser());
     removeToken();
     navigate("/login");
+    queryClient.clear();
   };
 
   return (

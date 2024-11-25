@@ -7,6 +7,7 @@ import { zeroArgsFunction } from "types/function";
 import toast from "react-hot-toast";
 import { apiClient } from "utils/axios";
 import { CustomDialog } from "components/CustomDialog";
+import { key } from "hooks/useProjects";
 
 const schema = z.object({
   name: z.string().min(1, "Project name is required"),
@@ -35,7 +36,7 @@ export default function AddProject({ onClose }: { onClose: zeroArgsFunction }) {
       mutate(data, {
         onSuccess: () => {
           toast.success("Project added successfully");
-          queryClient.invalidateQueries({ queryKey: ["user-projects"] });
+          queryClient.removeQueries({ queryKey: [key] });
           onClose();
         },
         onError: (error) => {

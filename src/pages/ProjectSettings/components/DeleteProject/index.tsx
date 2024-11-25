@@ -18,7 +18,7 @@ export default function DeleteProject() {
   });
 
   const handleAfterDelete = () => {
-    queryClient.invalidateQueries({ queryKey: [key] });
+    queryClient.removeQueries({ queryKey: [key] });
     navigate("/projects");
   };
 
