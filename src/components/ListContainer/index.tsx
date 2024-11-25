@@ -7,14 +7,14 @@ interface ListContainerProps {
   emptyText?: string;
   loading?: boolean;
   children: ReactNode;
-  count: number;
+  count?: number;
 }
 
 export default function ListContainer({
   children,
   error,
   emptyText,
-  count,
+  count = 1,
   loading,
 }: ListContainerProps) {
   if (loading) {

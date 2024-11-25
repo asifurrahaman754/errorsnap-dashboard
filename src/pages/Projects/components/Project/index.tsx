@@ -1,8 +1,8 @@
-import { Box, Card, CardContent, Chip, Typography } from "@mui/material";
-import AlertIcon from "icons/AlertIcon";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { project } from "types/project";
 import { cssColor } from "utils/colors";
+import ProjectErrorCount from "../ProjectErrorCount";
 
 export default function Project({ project }: { project: project }) {
   const navigate = useNavigate();
@@ -10,7 +10,6 @@ export default function Project({ project }: { project: project }) {
   const handleProjectClick = () => {
     navigate(`/projects/${project.id}/errors`);
   };
-  const errorCount = 0;
 
   return (
     <>
@@ -39,12 +38,8 @@ export default function Project({ project }: { project: project }) {
             <Typography variant="h6" component="h2">
               {project.name}
             </Typography>
-            <Chip
-              icon={<AlertIcon fontSize={16} />}
-              label={`${errorCount} errors`}
-              size="small"
-              color={errorCount > 0 ? "error" : "primary"}
-            />
+
+            <ProjectErrorCount projectId={project?.id} />
           </Box>
 
           <Typography color="text.secondary">{project.description}</Typography>
