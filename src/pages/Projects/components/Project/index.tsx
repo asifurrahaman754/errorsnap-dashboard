@@ -2,6 +2,7 @@ import { Box, Card, CardContent, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { project } from "types/project";
 import { cssColor } from "utils/colors";
+import { format } from "date-fns";
 import ProjectErrorCount from "../ProjectErrorCount";
 
 export default function Project({ project }: { project: project }) {
@@ -43,9 +44,11 @@ export default function Project({ project }: { project: project }) {
           </Box>
 
           <Typography color="text.secondary">{project.description}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            Last error: 7th july
-          </Typography>
+          {project?.last_error_at ? (
+            <Typography variant="body2" color="text.secondary">
+              Last error: {format(project?.last_error_at, "do MMM")}
+            </Typography>
+          ) : null}
         </CardContent>
       </Card>
     </>

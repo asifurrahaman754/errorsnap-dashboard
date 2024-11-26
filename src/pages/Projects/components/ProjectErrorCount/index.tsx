@@ -2,6 +2,7 @@ import { Chip, CircularProgress, Typography } from "@mui/material";
 import useErrors from "hooks/useErrors";
 import AlertIcon from "icons/AlertIcon";
 import React from "react";
+import { errorStatus } from "types/logs";
 
 export default function ProjectErrorCount({
   projectId,
@@ -14,6 +15,7 @@ export default function ProjectErrorCount({
     error,
   } = useErrors({
     projectId,
+    status: errorStatus.Unresolved,
   });
 
   if (error) {

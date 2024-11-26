@@ -4,4 +4,5 @@ export type project = {
   description: string;
   name: string;
   user_id: number;
+  last_error_at: string;
 };
