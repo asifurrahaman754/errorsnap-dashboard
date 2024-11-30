@@ -29,6 +29,9 @@ export default function ProjectSettingsTeamPendingList() {
 
   const { component, handleDelete } = useDeleteDialog(mutateAsync, {
     onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
+    title: "Cancel invitation",
+    description: "Are you sure you want to cancel the invitation",
+    successMessage: "Invitation successfully revoked",
   });
 
   return (

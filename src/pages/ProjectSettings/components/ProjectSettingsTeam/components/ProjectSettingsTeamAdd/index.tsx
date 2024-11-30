@@ -74,7 +74,8 @@ export default function ProjectSettingsTeamAdd({
         {...register("email")}
       />
       <FormHelperText>
-        The user must be a registered user to send the invitation
+        The user must be a registered user to send the invitation. We will send
+        your teammate a mail
       </FormHelperText>
     </CustomDialog>
   );
