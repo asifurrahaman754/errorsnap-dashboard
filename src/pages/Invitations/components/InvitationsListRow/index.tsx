@@ -41,6 +41,7 @@ export default function InvitationsListRow({
       title: "Accept Invitation?",
       successMessage:
         "Invitation accept, you can now find it in the project list",
+      startIcon: <CheckIcon />,
     });
 
   return (
