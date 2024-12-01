@@ -39,7 +39,7 @@
 
 ### 3. **Connect the SDK**
    - To integrate **ErrorSnap** with your web application, you need to include the **ErrorSnap SDK** in your project.
-   - Follow the detailed steps in the [SDK Integration Guide](https://github.com/yourusername/errorsnap-sdk) to set up the SDK.
+   - Follow the steps in the [SDK Integration Guide](https://github.com/asifurrahaman754/error-snap/blob/main/sdk/README.md) to set up the SDK.
 
 ### 4. **Extra - Slack Integration (Recommended)**
    - To get real-time notifications about errors, we recommend setting up **Slack Integration**. This will allow your team to receive instant notifications whenever an error occurs in your project
