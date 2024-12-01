@@ -42,6 +42,4 @@
    - Follow the detailed steps in the [SDK Integration Guide](https://github.com/yourusername/errorsnap-sdk) to set up the SDK.
 
 ### 4. **Extra - Slack Integration (Recommended)**
-   - To get real-time notifications about errors, we recommend setting up **Slack Integration**.
-   - This will allow your team to receive instant notifications whenever an error occurs in your project.
-   - Follow the instructions in the [Slack Integration Guide](https://github.com/yourusername/errorsnap-slack-integration) to configure Slack notifications for your project.
+   - To get real-time notifications about errors, we recommend setting up **Slack Integration**. This will allow your team to receive instant notifications whenever an error occurs in your project
