@@ -5,25 +5,20 @@ import ProjectSettingsTeamAdd from "../ProjectSettingsTeamAdd";
 import useProjectTeamList from "hooks/useProjectTeamList";
 import ListContainer from "components/ListContainer";
 import ProjectSettingsTeamListRow from "../ProjectSettingsTeamListRow";
-import useProjectByUser from "hooks/useProjectByUser";
 
-export default function ProjectSettingsTeamList() {
+export default function ProjectSettingsTeamList({
+  isProjectOwner,
+}: {
+  isProjectOwner: boolean;
+}) {
   const [teamAddPopup, setTeamAddPopup] = useState(false);
   const { isLoading, data, error } = useProjectTeamList(true, {
     retry: false,
   });
-  const { data: projectByUser, isLoading: isProjectFetching } =
-    useProjectByUser();
-
-  const isProjectOwner = !!projectByUser?.length;
 
   return (
     <>
-      <ListContainer
-        count={data?.length}
-        loading={isLoading || isProjectFetching}
-        error={error}
-      >
+      <ListContainer count={data?.length} loading={isLoading} error={error}>
         {isProjectOwner ? (
           <Box
             sx={{

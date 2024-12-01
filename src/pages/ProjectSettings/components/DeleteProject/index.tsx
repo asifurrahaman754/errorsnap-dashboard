@@ -1,6 +1,8 @@
 import { Button } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Loader from "components/Loader";
 import useConfirmDialog from "hooks/useConfirmDialog";
+import useProjectByUser from "hooks/useProjectByUser";
 import { key } from "hooks/useProjects";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -32,6 +34,16 @@ export default function DeleteProject() {
       successMessage: "Project deleted successfully",
     }
   );
+  const { data, isLoading } = useProjectByUser();
+  const isProjectOwner = !!data?.length;
+
+  if (isLoading) {
+    return <Loader p={[1, 2]} />;
+  }
+
+  if (!isProjectOwner) {
+    return null;
+  }
 
   return (
     <>

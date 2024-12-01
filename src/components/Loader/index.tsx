@@ -1,9 +1,13 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, BoxProps, CircularProgress } from "@mui/material";
 import { cssColor } from "utils/colors";
 
-export default function Loader({ size = 30 }: { size?: number }) {
+interface LoaderProps extends BoxProps {
+  size?: number;
+}
+
+export default function Loader({ size = 30, ...props }: LoaderProps) {
   return (
-    <Box display="flex" justifyContent="center" p={[2, 6]}>
+    <Box display="flex" justifyContent="center" p={[2, 6]} {...props}>
       <CircularProgress
         size={size}
         sx={{

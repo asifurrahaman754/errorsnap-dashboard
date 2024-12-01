@@ -15,11 +15,7 @@ export default function ProjectErrorDetails() {
 
   const { data, isLoading, isFetching, refetch, error } = useError(
     errorId,
-    true,
-    {
-      refetchOnWindowFocus: false,
-      retry: false,
-    }
+    true
   );
 
   const handleUpdate = async () => {
