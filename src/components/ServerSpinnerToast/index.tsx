@@ -15,7 +15,7 @@ const ServerSpinnerToast = () => {
 
     if (!lastVisitTime) {
       toastId.current = toast.loading(
-        "If you are here, it can take some time to spin up the server",
+        "For the fist time it can take some time to spin up the server",
         { duration: 5000 }
       );
     }
