@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Grid2 as Grid, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import SlackIcon from "icons/SlackIcon";
 import React from "react";
@@ -31,19 +31,17 @@ export default function ProjectSettingsSlackIntegrationAdd() {
   };
 
   return (
-    <Box
+    <Grid
+      container
       sx={{
-        height: "100px",
         borderRadius: 2,
         p: 2,
-        display: "flex",
         alignItems: "center",
-        gap: 1,
-        justifyContent: "space-between",
         backgroundColor: cssColor("backgroundShade"),
       }}
+      spacing={1}
     >
-      <Box>
+      <Grid size={{ xs: 12, sm: 8, md: 9 }}>
         <Box display="flex" alignItems="center" gap={1} mb={1}>
           <SlackIcon />
           <Typography variant="h5">Slack</Typography>
@@ -52,10 +50,19 @@ export default function ProjectSettingsSlackIntegrationAdd() {
           connect your slack workspace to get your project error messages <br />{" "}
           directly in your slack workspace
         </Typography>
-      </Box>
-      <Button onClick={connectToSlack} variant="contained" color="white">
-        Connect to slack
-      </Button>
-    </Box>
+      </Grid>
+      <Grid size={{ xs: 12, sm: 4, md: 3 }} textAlign="right">
+        <Button
+          sx={{ width: "100%" }}
+          onClick={connectToSlack}
+          variant="contained"
+          color="white"
+        >
+          <Typography variant="body1" fontWeight={600} noWrap color={"black"}>
+            Connect to slack
+          </Typography>
+        </Button>
+      </Grid>
+    </Grid>
   );
 }
