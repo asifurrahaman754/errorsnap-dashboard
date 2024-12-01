@@ -32,7 +32,15 @@ export default function Navbar() {
       >
         <PageContainer sx={{ height: "100%" }}>
           <Box height="100%" display="flex" alignItems="center">
-            <Box sx={{ flexGrow: 1 }}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <Box width="30px" component="img" src="/bug.svg" />
               <Typography
                 sx={{ cursor: "pointer", display: "inline-block" }}
                 color="white"
