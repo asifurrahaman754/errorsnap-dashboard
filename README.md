@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# Errorsnap dashboard
+## 🚀 Overview  
+**ErrorSnap** is a comprehensive error management solution for web applications. It allows teams to detect, track, and resolve errors efficiently. Built for developers and project teams, ErrorSnap ensures seamless error monitoring, assignment, and resolution with real-time Slack notifications. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠️ Features  
+- **User Management**:  
+  - Login and register users.  
+- **Project Management**:  
+  - Add or delete projects.  
+  - View errors by each project.
+- **Error Tracking**:  
+  - Display project errors.
+  - Search and filter errors using various criteria.  
+  - Detailed error views include stack trace, file info, error line/col no, and browser/OS info for each error.  
+- **Team Collaboration**:  
+  - Add team members to projects.  
+  - Assign errors to specific team members for resolution.  
+- **Slack Integration**:
+  - Receive real-time messages for errors via Slack integration.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
+- React.js
+- Typescript
+- Iconify
+- Material-UI
+- React hook form
+- Zod
+- Tanstack Query
+- Redux toolkit
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
+### 1. **Register and Create a Project**
+   - First, sign up or log in to the **ErrorSnap** platform.
+   - After login create a project with the necessary information.
+   - Once created, your project will be listed in the dashboard.
 
-## Expanding the ESLint configuration
+### 2. **Copy Project ID**
+   - Click on your created project and copy your project ID.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 3. **Connect the SDK**
+   - To integrate **ErrorSnap** with your web application, you need to include the **ErrorSnap SDK** in your project.
+   - Follow the detailed steps in the [SDK Integration Guide](https://github.com/yourusername/errorsnap-sdk) to set up the SDK.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 4. **Extra - Slack Integration (Recommended)**
+   - To get real-time notifications about errors, we recommend setting up **Slack Integration**.
+   - This will allow your team to receive instant notifications whenever an error occurs in your project.
+   - Follow the instructions in the [Slack Integration Guide](https://github.com/yourusername/errorsnap-slack-integration) to configure Slack notifications for your project.
