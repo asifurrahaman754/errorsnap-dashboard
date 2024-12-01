@@ -5,10 +5,9 @@ import { Toaster } from "react-hot-toast";
 import AppEvents from "components/AppEvents";
 import AppLoader from "components/AppLoader";
 import GlobalFetchingLoader from "components/GlobalFetchingLoader";
+import ServerSpinnerToast from "components/ServerSpinnerToast";
 
 function App() {
-  console.log("app running");
-
   return (
     <>
       <Toaster />
@@ -19,6 +18,7 @@ function App() {
           background: cssColor("background"),
         }}
       >
+        <ServerSpinnerToast />
         <AppEvents />
         <AppLoader>
           <GlobalFetchingLoader />
