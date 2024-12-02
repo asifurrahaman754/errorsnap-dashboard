@@ -42,4 +42,10 @@
    - Follow the steps in the [SDK Integration Guide](https://github.com/asifurrahaman754/error-snap/blob/main/sdk/README.md) to set up the SDK.
 
 ### 4. **Extra - Slack Integration (Recommended)**
-   - To get real-time notifications about errors, we recommend setting up **Slack Integration**. This will allow your team to receive instant notifications whenever an error occurs in your project
+   - We recommend setting up **Slack Integration** to get real-time notifications about errors. This will allow your team to receive instant notifications whenever an error occurs in your project
+
+
+## Future improvements
+- export errors as CSV file
+- Show the image of the page where the error occurred
+- Show the error function/code pointer
