@@ -30,7 +30,7 @@
 
 ## Usage
 ### 1. **Register and Create a Project**
-   - First, sign up or log in to the **ErrorSnap** platform.
+   - First, sign up or log in to the [**ErrorSnap**](https://errorsnap.netlify.app) platform.
    - After login create a project with the necessary information.
    - Once created, your project will be listed in the dashboard.
 
