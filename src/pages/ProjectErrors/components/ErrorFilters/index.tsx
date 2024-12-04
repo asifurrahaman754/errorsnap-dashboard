@@ -32,7 +32,7 @@ export default function ErrorFilters() {
             value={queryValue}
             onChange={handleChangeQuery}
             size="small"
-            placeholder="Search errors by name..."
+            placeholder="Search errors by name or id"
             slotProps={{
               input: {
                 startAdornment: (
