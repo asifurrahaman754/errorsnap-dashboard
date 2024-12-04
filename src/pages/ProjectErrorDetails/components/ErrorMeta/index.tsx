@@ -9,6 +9,7 @@ import useConfirmDialog from "hooks/useConfirmDialog";
 import { useMutation } from "@tanstack/react-query";
 import { apiClient } from "utils/axios";
 import CheckIcon from "icons/CheckIcon";
+import Copy from "components/Copy";
 
 interface ErrorMetaProps {
   error: errorLog;
@@ -47,6 +48,10 @@ export default function ErrorMeta({ error, loading, update }: ErrorMetaProps) {
           borderRadius: 1,
         }}
       >
+        <Typography variant="body2">Id</Typography>
+        <Typography variant="body1" mb={2}>
+          <Copy>{error?.id}</Copy>
+        </Typography>
         <Typography variant="body2">First seen</Typography>
         <Typography variant="body1" mb={2}>
           {format(new Date(error.created_at), "d.M.yyyy")}
