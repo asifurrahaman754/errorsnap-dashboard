@@ -47,9 +47,10 @@ export default function ErrorTable() {
           mt: 3,
         }}
       >
-        <Table sx={{ minWidth: 650, "& td, & th": { border: 0 } }}>
+        <Table sx={{ minWidth: 800, "& td, & th": { border: 0 } }}>
           <TableHead>
             <TableRow>
+              <TableCell>Id</TableCell>
               <TableCell>Details</TableCell>
               <TableCell>Status</TableCell>
               <TableCell>OS</TableCell>
@@ -68,6 +69,7 @@ export default function ErrorTable() {
                 }}
                 key={error?.id}
               >
+                <TableCell>{error?.id}</TableCell>
                 <TableCell component="th" scope="row">
                   <Link
                     to={`${location.pathname}/${error?.id}`}
