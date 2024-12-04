@@ -49,3 +49,4 @@
 - export errors as CSV file
 - Show the image of the page where the error occurred
 - Show the error function/code pointer
+- Supports browsers like uc, brave, opera
