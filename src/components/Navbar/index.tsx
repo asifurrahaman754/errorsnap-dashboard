@@ -1,17 +1,11 @@
-import { AppBar, Box, SwipeableDrawer, Typography } from "@mui/material";
+import { AppBar, Box, Typography } from "@mui/material";
 import PageContainer from "components/PageContainer";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { cssColor } from "utils/colors";
 import MenuItems from "./components/MenuItems";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-
-  const handleToggleSidebarMenu = () => {
-    setOpen((prev) => !prev);
-  };
 
   const RedirectToHome = () => {
     navigate("/projects");
@@ -55,15 +49,6 @@ export default function Navbar() {
           </Box>
         </PageContainer>
       </AppBar>
-
-      <SwipeableDrawer
-        anchor={"left"}
-        open={open}
-        onClose={handleToggleSidebarMenu}
-        onOpen={handleToggleSidebarMenu}
-      >
-        <Box width="200px">hi</Box>
-      </SwipeableDrawer>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Box, Button, TableCell, TableRow } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { key } from "hooks/useAllInvitations";
+import { key as hasInvitationKey } from "hooks/useHasInvitation";
 import useConfirmDialog from "hooks/useConfirmDialog";
 import CheckIcon from "icons/CheckIcon";
 import CloseIcon from "icons/CloseIcon";
@@ -29,14 +30,20 @@ export default function InvitationsListRow({
 
   const { component: cancelDialog, handleDelete: handleCancel } =
     useConfirmDialog(cancelMutate, {
-      onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
+      onAfterDelete: () => {
+        queryClient.invalidateQueries({ queryKey: [key] });
+        queryClient.invalidateQueries({ queryKey: [hasInvitationKey] });
+      },
       description: "Are you sure you want to cancel the invitation?",
       title: "Cancel Invitation?",
     });
 
   const { component: approveDialog, handleDelete: handleApprove } =
     useConfirmDialog(approveMutate, {
-      onAfterDelete: () => queryClient.invalidateQueries({ queryKey: [key] }),
+      onAfterDelete: () => {
+        queryClient.invalidateQueries({ queryKey: [key] });
+        queryClient.invalidateQueries({ queryKey: [hasInvitationKey] });
+      },
       description: "Are you sure you want to accept the invitation?",
       title: "Accept Invitation?",
       successMessage:
