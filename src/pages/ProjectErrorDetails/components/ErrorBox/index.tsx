@@ -1,13 +1,13 @@
 import { Box, Chip, Typography } from "@mui/material";
-import { errorLog } from "types/errorLog";
+import { errorLog, errorLogStatus } from "types/errorLog";
 import { errorStatus } from "types/logs";
 import { cssColor } from "utils/colors";
 
 export default function ErrorBox({ error }: { error: errorLog }) {
   const statusColor =
-    error?.status === 0
+    error?.status === errorLogStatus.UNRESOLVED
       ? "error"
-      : error?.status === 1
+      : error?.status === errorLogStatus.PENDING
       ? "secondary"
       : "success";
 
@@ -48,8 +48,11 @@ export default function ErrorBox({ error }: { error: errorLog }) {
         </Box>
       </Box>
 
-      <Typography variant="h6">Stack trace</Typography>
+      <Typography mb={1} variant="h6">
+        Stack trace
+      </Typography>
       <Box
+        mb={2}
         minHeight="200px"
         sx={{
           backgroundColor: cssColor("backgroundShade"),
@@ -62,6 +65,22 @@ export default function ErrorBox({ error }: { error: errorLog }) {
       >
         <pre>{error?.stack}</pre>
       </Box>
+
+      {error?.image ? (
+        <>
+          <Typography mb={1} variant="h6">
+            Screenshot
+          </Typography>
+          <Box
+            component="img"
+            sx={{
+              aspectRatio: 16 / 9,
+              width: "100%",
+            }}
+            src={error?.image}
+          />
+        </>
+      ) : null}
     </Box>
   );
 }

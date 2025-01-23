@@ -11,6 +11,7 @@ export type errorLog = {
   status: errorLogStatus;
   created_at: string;
   assignee_id: number;
+  image: string;
 };
 
 export enum errorLogStatus {
