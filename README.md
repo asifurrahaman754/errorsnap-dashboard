@@ -11,7 +11,8 @@
 - **Error Tracking**:  
   - Display project errors.
   - Search and filter errors using various criteria.  
-  - Detailed error views include stack trace, file info, error line/col no, and browser/OS info for each error.  
+  - Detailed error views include stack trace, file info, error line/col no, and browser/OS info for each error.
+  - See screenshot of the error page
 - **Team Collaboration**:  
   - Add team members to projects.  
   - Assign errors to specific team members for resolution.  
@@ -47,6 +48,5 @@
 
 ## Future improvements
 - export errors as CSV file
-- Show the image of the page where the error occurred - hurray, it's live 🎉
 - Show the error function/code pointer
 - Supports browsers like uc, brave, opera
