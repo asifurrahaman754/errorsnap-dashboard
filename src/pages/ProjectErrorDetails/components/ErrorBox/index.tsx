@@ -74,8 +74,13 @@ export default function ErrorBox({ error }: { error: errorLog }) {
           <Box
             component="img"
             sx={{
-              aspectRatio: 16 / 9,
               width: "100%",
+              maxWidth: "500px",
+              maxHeight: "300px",
+              objectFit: "contain",
+              display: "block",
+              margin: "0 auto",
+              border: `1px solid ${cssColor("error")}`,
             }}
             src={error?.image}
           />
