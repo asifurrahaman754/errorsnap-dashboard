@@ -5,6 +5,7 @@ import ProjectSettingsTeamAdd from "../ProjectSettingsTeamAdd";
 import useProjectTeamList from "hooks/useProjectTeamList";
 import ListContainer from "components/ListContainer";
 import ProjectSettingsTeamListRow from "../ProjectSettingsTeamListRow";
+import { cssColor } from "utils/colors";
 
 export default function ProjectSettingsTeamList({
   isProjectOwner,
@@ -31,6 +32,13 @@ export default function ProjectSettingsTeamList({
               variant="contained"
               startIcon={<AddIcon fontSize={18} />}
               onClick={() => setTeamAddPopup(true)}
+              sx={{
+                backgroundColor: cssColor("primary"),
+                color: cssColor("white"),
+                "&:hover": {
+                  backgroundColor: "#1565C0",
+                },
+              }}
             >
               Invite Member
             </Button>

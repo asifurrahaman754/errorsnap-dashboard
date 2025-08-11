@@ -28,7 +28,9 @@ export default function ProjectSettingsTeam() {
       <Typography mb={1} variant="h5">
         Members
       </Typography>
-      <Typography>Members Manage team members and invitations</Typography>
+      <Typography color={cssColor("textSecondary")}>
+        Members Manage team members and invitations
+      </Typography>
       <Box sx={{ my: 2, borderBottom: 1, borderColor: cssColor("divider") }}>
         <TabsContainer value={currentTab} onChange={handleChange}>
           <TabsContainer.item Icon={UsersIcon} label="Team Members" value={1} />

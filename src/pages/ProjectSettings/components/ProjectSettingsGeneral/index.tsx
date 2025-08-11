@@ -1,3 +1,9 @@
+import SourcemapHistory from "./components/SourcemapHistory";
+
 export default function ProjectSettingsGeneral() {
-  return <div></div>;
+  return (
+    <>
+      <SourcemapHistory />
+    </>
+  );
 }
