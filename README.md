@@ -20,6 +20,7 @@
   - Search and filter errors using various criteria.  
   - Detailed error views include stack trace, file info, error line/col no, and browser/OS info for each error.
   - See screenshot of the error page
+  - **Track original error lines using source maps**, enabling production apps (like React) to see the exact error location in the source code.
 - **Team Collaboration**:  
   - Add team members to projects.  
   - Assign errors to specific team members for resolution.  
