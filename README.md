@@ -43,17 +43,15 @@
 - Redux toolkit
 
 ## Usage
-### 1. **Register and Create a Project**
-   - First, sign up or log in to the [**ErrorSnap**](https://errorsnap.netlify.app) platform.
-   - After login create a project with the necessary information.
-   - Once created, your project will be listed in the dashboard.
+### 1. **Create a Project**
+   - Sign up / log in and create a project on the [**ErrorSnap**](https://errorsnap.netlify.app) platform.
+   - Create a new project.
 
 ### 2. **Copy Project ID**
    - Click on your created project and copy your project ID.
 
 ### 3. **Connect the SDK**
-   - To integrate **ErrorSnap** with your web application, you need to include the **ErrorSnap SDK** in your project.
-   - Follow the steps in the [SDK Integration Guide](https://github.com/asifurrahaman754/error-snap/blob/main/sdk/README.md) to set up the SDK.
+   - To integrate **ErrorSnap** with your web application, you need to include the **ErrorSnap SDK** in your project. [SDK Integration Guide](https://github.com/asifurrahaman754/error-snap/blob/main/sdk/README.md)
 
 ### 4 **Upload Source Maps (Optional but Recommended)**  
    - Install the [**ErrorSnap cli**](https://www.npmjs.com/package/errorsnap-cli) npm package in your project. Use it to automatically upload your source maps, so production apps (like React) can show the original error lines in your dashboard.
