@@ -55,6 +55,16 @@
    - To integrate **ErrorSnap** with your web application, you need to include the **ErrorSnap SDK** in your project.
    - Follow the steps in the [SDK Integration Guide](https://github.com/asifurrahaman754/error-snap/blob/main/sdk/README.md) to set up the SDK.
 
+### 4 **Upload Source Maps (Optional but Recommended)**  
+   - Install the [**ErrorSnap cli**](https://www.npmjs.com/package/errorsnap-cli) npm package in your project. Use it to automatically upload your source maps, so production apps (like React) can show the original error lines in your dashboard.
+
+     Add the following script to your `package.json` to upload source maps after build:  
+     ```json
+     "scripts": {
+       "postbuild": "errorsnap-upload -p <project_id> -d <dist folder>"
+     }
+     ```
+
 ### 4. **Extra - Slack Integration (Recommended)**
    - We recommend setting up **Slack Integration** to get real-time notifications about errors. This will allow your team to receive instant notifications whenever an error occurs in your project
 
