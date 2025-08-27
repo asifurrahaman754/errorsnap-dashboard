@@ -3,9 +3,14 @@
 **ErrorSnap** is a comprehensive error management solution for web applications. It allows teams to detect, track, and resolve errors efficiently. Built for developers and project teams, ErrorSnap ensures seamless error monitoring, assignment, and resolution with real-time Slack notifications. 
 
 ## Images
+<img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/9262a7c8-b556-4020-9b00-a338bedc5d7e" />
+
 ![image](https://github.com/user-attachments/assets/00bb2b92-3c06-44c7-ae60-26bb6c3c1758)
 ![image](https://github.com/user-attachments/assets/5b745080-dddb-4cf9-b457-e8b81dcef9a7)
 ![image](https://github.com/user-attachments/assets/c9ca9498-3b68-4eed-95ca-606fb00879cf)
+
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/cb9bcc28-e738-4287-8617-0fa985d8a4c5" />
+
 ![image](https://github.com/user-attachments/assets/6e0ab621-1d0a-4495-a1cc-c3055627aaf7)
 
 
